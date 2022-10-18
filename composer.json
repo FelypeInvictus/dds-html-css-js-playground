@@ -25,6 +25,6 @@
         }
     ],
     "require": {
-        "slim/slim": "2.*"
+        "amphp/amp": "^2.5"
     }
 }

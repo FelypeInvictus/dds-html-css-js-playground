@@ -19,14 +19,14 @@
     //boa prática seria armazenar as credenciais em um arquivo separaco
     //ler o arquivo config.json na raiz do projeto.
  
-    $json = file_get_contents( __DIR__ . '/../../config.json');
+    //$json = file_get_contents( __DIR__ . '/../../config.json');
     
-    // $json = '{
-    //   "dbhost":"localhost",
-    //   "dbase": "dds311",
-    //   "dbuser":"root",
-    //   "dbpass":"r00t@Abc" 
-    //  }';
+    $json = '{
+      "dbhost":"localhost",
+      "dbase": "dds311",
+      "dbuser":"root",
+      "dbpass":"" 
+     }';
 
     $arr_json =  json_decode($json);
 

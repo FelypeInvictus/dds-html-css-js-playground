@@ -1,8 +1,8 @@
 <?php
 /**
- * Model contato
+ * Model produto
  * 
- * @author Wanderlei Silva do Carmo <wander.silva@gmail.com>
+ * @author Felype Rangel <felype.sales@outlook.com>
  * @version 1.0
  * 
  */
@@ -11,17 +11,17 @@
 
  use \App\Persistence\Conexao as Conexao;
 
- class ContatoModel  {
+ class ProdutoModel  {
     
     protected  $con;
-    protected \App\Entities\Contato $entity;
+    protected \App\Entities\Produto $entity;
     
     public function __construct() {
         $this->con = Conexao::getInstance();
     }
 
     public function getAll(){
-        $sql = 'SELECT * FROM contatos ';
+        $sql = 'SELECT * FROM produtos ';
         $query = $this->con->query($sql, \PDO::FETCH_OBJ);
 
         $data = [];
@@ -32,21 +32,31 @@
         return $data;
     }
 
+    public function getById(){
+        $sql = 'SELECT * FROM produtos WHERE id = ?';
+        //$query = $this->con->query($sql, \PDO::FETCH_OBJ);
+        
 
-    public function add(\App\Entities\Contato $entity): bool{
+
+        
+    }
+
+    public function add(\App\Entities\Produto $entity): bool{
 
         //die(var_dump($entity));
 
-        $sql  = ' INSERT INTO contatos (id, nome, email, assunto, mensagem) ';
-        $sql .= ' VALUES(?,?,?,?,? ) ' ;
+        $sql  = ' INSERT INTO produtos ( nome, descricao, preco) ';
+        $sql .= ' VALUES(?,?,? ) ' ;
 
         $stm = $this->con->prepare($sql);
 
-        $stm->bindValue(1, $entity->getId());
-        $stm->bindValue(2, $entity->getNome());
-        $stm->bindValue(3, $entity->getEmail());
-        $stm->bindValue(4, $entity->getAssunto());
-        $stm->bindValue(5, $entity->getMensagem());
+       // die(var_dump($entity->getPreco()));
+        
+        //$stm->bindValue(1, $entity->getId());
+        $stm->bindValue(1, $entity->getNome());
+        $stm->bindValue(2, $entity->getDescricao());
+        $stm->bindValue(3, $entity->getPreco());
+       
 
         $inserted = $stm->execute();
 
@@ -61,24 +71,22 @@
         return $inserted;
     }
 
-    public function update(\App\Entities\Contato $entity): bool{
+    public function update(\App\Entities\Produto $entity): bool{
            //die(var_dump($entity));
 
-           $sql  = ' UPDATE contatos                             
+           $sql  = ' UPDATE produtos                             
                             SET nome = ? , 
-                            email = ? , 
-                            assunto = ?, 
-                            mensagem = ? ';
+                            descricao = ? , 
+                            preco = ? ';
 
            $sql .= ' WHERE id = ? ' ;
               
            $stm = $this->con->prepare($sql);
    
            $stm->bindValue(1, $entity->getNome());
-           $stm->bindValue(2, $entity->getEmail());
-           $stm->bindValue(3, $entity->getAssunto());
-           $stm->bindValue(4, $entity->getMensagem());
-           $stm->bindValue(5, $entity->getId());
+           $stm->bindValue(2, $entity->getDescricao());
+           $stm->bindValue(3, $entity->getPreco());
+           $stm->bindValue(4, $entity->getId());
    
            $updated = $stm->execute();
    
@@ -94,7 +102,7 @@
     }
 
     public function delete($id){
-        $sql  = ' DELETE FROM contatos '; 
+        $sql  = ' DELETE FROM produtos '; 
         $sql .= ' WHERE id = ? ' ;
 
         $stm = $this->con->prepare($sql);

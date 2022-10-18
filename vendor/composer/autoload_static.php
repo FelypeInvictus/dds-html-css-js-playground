@@ -6,10 +6,16 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0
 {
+    public static $files = array (
+        'e8aa6e4b5a1db2f56ae794f1505391a8' => __DIR__ . '/..' . '/amphp/amp/lib/functions.php',
+        '76cd0796156622033397994f25b0d8fc' => __DIR__ . '/..' . '/amphp/amp/lib/Internal/functions.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'A' => 
         array (
             'App\\' => 4,
+            'Amp\\' => 4,
         ),
     );
 
@@ -18,51 +24,65 @@ class ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-    );
-
-    public static $prefixesPsr0 = array (
-        'S' => 
+        'Amp\\' => 
         array (
-            'Slim' => 
-            array (
-                0 => __DIR__ . '/..' . '/slim/slim',
-            ),
+            0 => __DIR__ . '/..' . '/amphp/amp/lib',
         ),
     );
 
     public static $classMap = array (
+        'Amp\\CallableMaker' => __DIR__ . '/..' . '/amphp/amp/lib/CallableMaker.php',
+        'Amp\\CancellationToken' => __DIR__ . '/..' . '/amphp/amp/lib/CancellationToken.php',
+        'Amp\\CancellationTokenSource' => __DIR__ . '/..' . '/amphp/amp/lib/CancellationTokenSource.php',
+        'Amp\\CancelledException' => __DIR__ . '/..' . '/amphp/amp/lib/CancelledException.php',
+        'Amp\\CombinedCancellationToken' => __DIR__ . '/..' . '/amphp/amp/lib/CombinedCancellationToken.php',
+        'Amp\\Coroutine' => __DIR__ . '/..' . '/amphp/amp/lib/Coroutine.php',
+        'Amp\\Deferred' => __DIR__ . '/..' . '/amphp/amp/lib/Deferred.php',
+        'Amp\\Delayed' => __DIR__ . '/..' . '/amphp/amp/lib/Delayed.php',
+        'Amp\\Emitter' => __DIR__ . '/..' . '/amphp/amp/lib/Emitter.php',
+        'Amp\\Failure' => __DIR__ . '/..' . '/amphp/amp/lib/Failure.php',
+        'Amp\\Internal\\Placeholder' => __DIR__ . '/..' . '/amphp/amp/lib/Internal/Placeholder.php',
+        'Amp\\Internal\\PrivateIterator' => __DIR__ . '/..' . '/amphp/amp/lib/Internal/PrivateIterator.php',
+        'Amp\\Internal\\PrivatePromise' => __DIR__ . '/..' . '/amphp/amp/lib/Internal/PrivatePromise.php',
+        'Amp\\Internal\\Producer' => __DIR__ . '/..' . '/amphp/amp/lib/Internal/Producer.php',
+        'Amp\\Internal\\ResolutionQueue' => __DIR__ . '/..' . '/amphp/amp/lib/Internal/ResolutionQueue.php',
+        'Amp\\InvalidYieldError' => __DIR__ . '/..' . '/amphp/amp/lib/InvalidYieldError.php',
+        'Amp\\Iterator' => __DIR__ . '/..' . '/amphp/amp/lib/Iterator.php',
+        'Amp\\LazyPromise' => __DIR__ . '/..' . '/amphp/amp/lib/LazyPromise.php',
+        'Amp\\Loop' => __DIR__ . '/..' . '/amphp/amp/lib/Loop.php',
+        'Amp\\Loop\\Driver' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/Driver.php',
+        'Amp\\Loop\\DriverFactory' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/DriverFactory.php',
+        'Amp\\Loop\\EvDriver' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/EvDriver.php',
+        'Amp\\Loop\\EventDriver' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/EventDriver.php',
+        'Amp\\Loop\\Internal\\TimerQueue' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/Internal/TimerQueue.php',
+        'Amp\\Loop\\InvalidWatcherError' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/InvalidWatcherError.php',
+        'Amp\\Loop\\NativeDriver' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/NativeDriver.php',
+        'Amp\\Loop\\TracingDriver' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/TracingDriver.php',
+        'Amp\\Loop\\UnsupportedFeatureException' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/UnsupportedFeatureException.php',
+        'Amp\\Loop\\UvDriver' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/UvDriver.php',
+        'Amp\\Loop\\Watcher' => __DIR__ . '/..' . '/amphp/amp/lib/Loop/Watcher.php',
+        'Amp\\MultiReasonException' => __DIR__ . '/..' . '/amphp/amp/lib/MultiReasonException.php',
+        'Amp\\NullCancellationToken' => __DIR__ . '/..' . '/amphp/amp/lib/NullCancellationToken.php',
+        'Amp\\Producer' => __DIR__ . '/..' . '/amphp/amp/lib/Producer.php',
+        'Amp\\Promise' => __DIR__ . '/..' . '/amphp/amp/lib/Promise.php',
+        'Amp\\Struct' => __DIR__ . '/..' . '/amphp/amp/lib/Struct.php',
+        'Amp\\Success' => __DIR__ . '/..' . '/amphp/amp/lib/Success.php',
+        'Amp\\TimeoutCancellationToken' => __DIR__ . '/..' . '/amphp/amp/lib/TimeoutCancellationToken.php',
+        'Amp\\TimeoutException' => __DIR__ . '/..' . '/amphp/amp/lib/TimeoutException.php',
         'App\\Controllers\\ContatoController' => __DIR__ . '/../..' . '/src/Controllers/ContatoController.php',
         'App\\Controllers\\Controller' => __DIR__ . '/../..' . '/src/Controllers/Controller.php',
+        'App\\Controllers\\ProdutoController' => __DIR__ . '/../..' . '/src/Controllers/ProdutoController.php',
         'App\\Controllers\\UsuarioController' => __DIR__ . '/../..' . '/src/Controllers/UsuarioController.php',
         'App\\Entities\\Contato' => __DIR__ . '/../..' . '/src/Entities/Contato.php',
+        'App\\Entities\\Produto' => __DIR__ . '/../..' . '/src/Entities/Produto.php',
         'App\\Entities\\Usuario' => __DIR__ . '/../..' . '/src/Entities/Usuario.php',
         'App\\Models\\ContatoModel' => __DIR__ . '/../..' . '/src/Models/ContatoModel.php',
         'App\\Models\\ICRUD' => __DIR__ . '/../..' . '/src/Models/ICRUD.php',
+        'App\\Models\\ProdutoModel' => __DIR__ . '/../..' . '/src/Models/ProdutoModel.php',
         'App\\Models\\UsuarioModel' => __DIR__ . '/../..' . '/src/Models/UsuarioModel.php',
         'App\\Persistence\\CRUD' => __DIR__ . '/../..' . '/src/Persistence/CRUD.php',
         'App\\Persistence\\Conexao' => __DIR__ . '/../..' . '/src/Persistence/Conexao.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Slim\\Environment' => __DIR__ . '/..' . '/slim/slim/Slim/Environment.php',
-        'Slim\\Exception\\Pass' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/Pass.php',
-        'Slim\\Exception\\Stop' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/Stop.php',
-        'Slim\\Helper\\Set' => __DIR__ . '/..' . '/slim/slim/Slim/Helper/Set.php',
-        'Slim\\Http\\Cookies' => __DIR__ . '/..' . '/slim/slim/Slim/Http/Cookies.php',
-        'Slim\\Http\\Headers' => __DIR__ . '/..' . '/slim/slim/Slim/Http/Headers.php',
-        'Slim\\Http\\Request' => __DIR__ . '/..' . '/slim/slim/Slim/Http/Request.php',
-        'Slim\\Http\\Response' => __DIR__ . '/..' . '/slim/slim/Slim/Http/Response.php',
-        'Slim\\Http\\Util' => __DIR__ . '/..' . '/slim/slim/Slim/Http/Util.php',
-        'Slim\\Log' => __DIR__ . '/..' . '/slim/slim/Slim/Log.php',
-        'Slim\\LogWriter' => __DIR__ . '/..' . '/slim/slim/Slim/LogWriter.php',
-        'Slim\\Middleware' => __DIR__ . '/..' . '/slim/slim/Slim/Middleware.php',
-        'Slim\\Middleware\\ContentTypes' => __DIR__ . '/..' . '/slim/slim/Slim/Middleware/ContentTypes.php',
-        'Slim\\Middleware\\Flash' => __DIR__ . '/..' . '/slim/slim/Slim/Middleware/Flash.php',
-        'Slim\\Middleware\\MethodOverride' => __DIR__ . '/..' . '/slim/slim/Slim/Middleware/MethodOverride.php',
-        'Slim\\Middleware\\PrettyExceptions' => __DIR__ . '/..' . '/slim/slim/Slim/Middleware/PrettyExceptions.php',
-        'Slim\\Middleware\\SessionCookie' => __DIR__ . '/..' . '/slim/slim/Slim/Middleware/SessionCookie.php',
-        'Slim\\Route' => __DIR__ . '/..' . '/slim/slim/Slim/Route.php',
-        'Slim\\Router' => __DIR__ . '/..' . '/slim/slim/Slim/Router.php',
-        'Slim\\Slim' => __DIR__ . '/..' . '/slim/slim/Slim/Slim.php',
-        'Slim\\View' => __DIR__ . '/..' . '/slim/slim/Slim/View.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -70,7 +90,6 @@ class ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0::$classMap;
 
         }, null, ClassLoader::class);

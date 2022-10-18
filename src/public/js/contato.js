@@ -40,10 +40,10 @@ const obterContatos = () => {
                          data-mensagem="${e.mensagem}">
 
                         <td>${e.id}</td>
-                        <!-- <td>${e.nome}</td> -->
+                        <td>${e.nome}</td>
                         <td>${e.email}</td>
-                        <!-- <td>${e.assunto}</td> -->
-                        <!-- <td>${e.mensagem}</td> -->
+                        <td>${e.assunto}</td>
+                        <td>${e.mensagem}</td>
                         <td>
                            <button type="button" onclick="popularForm(this);"   class="btn btn-info btn-sm">
                                 <i class="fa fa-edit"></i>
