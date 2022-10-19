@@ -32,14 +32,14 @@
         return $data;
     }
 
-    public function getById(){
-        $sql = 'SELECT * FROM produtos WHERE id = ?';
-        //$query = $this->con->query($sql, \PDO::FETCH_OBJ);
+    // public function getById(){
+    //     $sql = 'SELECT * FROM produtos WHERE id = ?';
+    //     //$query = $this->con->query($sql, \PDO::FETCH_OBJ);
         
 
 
         
-    }
+    // }
 
     public function add(\App\Entities\Produto $entity): bool{
 
