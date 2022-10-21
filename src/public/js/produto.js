@@ -8,7 +8,7 @@
  * 
  */
 
- var popularForm = (elem) => {
+ const popularFormProduto = (elem) => {
     // pega os dados do elemento pai
     var ct = elem.parentNode.parentNode
   
@@ -42,7 +42,7 @@
                           <td>${e.descricao}</td>
                           <td>${e.preco}</td>
                           <td>
-                             <button type="button" onclick="popularForm(this);"   class="btn btn-info btn-sm">
+                             <button type="button" onclick="popularFormProduto(this);"   class="btn btn-info btn-sm">
                                   <i class="fa fa-edit"></i>
                               </button>
                              <button type="button" onclick="excluirProduto(${e.id})" class="btn btn-danger btn-sm">
@@ -56,25 +56,23 @@
   }
   
   
-  const salvarProduto = async (e) => {
+  const salvarProduto = (e) => {
   
       const id =       document.getElementById('id').value;
       const nome =     document.getElementById('nome').value;
       const descricao =  document.getElementById('descricao').value;
       const preco =    document.getElementById('preco').value;
      
-  
-      
+
       let formProduto = new FormData();
+
       formProduto.append('id', id);
-      formProduto.append('nome',nome);
-      formProduto.append('descricao', descricao)
+      formProduto.append('nome', nome);
+      formProduto.append('descricao', descricao);
       formProduto.append('preco', preco);
       
       
-      let salvar = undefined
-      
-      console.log(formContato.toString())
+      //console.log(formContato.toString())
       if ( id > 0 ){
           fetch('produto.php', {
                                  mode: 'cors',
@@ -83,7 +81,7 @@
                                  headers: { 'Content-Type': 'application/x-www-form-urlencoded'} 
           })
            .then(resp => resp.json())
-           .then(resp => { console.log(resp);obterProdutos() })
+           .then(resp => { console.log(resp); obterProdutos() })
            .catch(err => console.log(err))
                               
           console.log('atualizando...');
@@ -100,8 +98,10 @@
            .catch(err => console.log(err))
   
            
-           console.log('incluindo novo...')
+           console.log('incluindo novo...');
           }
+
+          return false;
       }
   
   const excluirProduto = (id) => {

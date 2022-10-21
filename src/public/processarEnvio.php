@@ -5,7 +5,6 @@
 
  $dados = $_REQUEST;
 
-
  
  $retorno = [ 
      'nome' => $dados['nome'], 

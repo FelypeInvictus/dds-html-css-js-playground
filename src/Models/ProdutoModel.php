@@ -32,6 +32,7 @@
         return $data;
     }
 
+
     // public function getById(){
     //     $sql = 'SELECT * FROM produtos WHERE id = ?';
     //     //$query = $this->con->query($sql, \PDO::FETCH_OBJ);
@@ -45,12 +46,12 @@
 
         //die(var_dump($entity));
 
-        $sql  = ' INSERT INTO produtos ( nome, descricao, preco) ';
+        $sql  = ' INSERT INTO produtos (nome, descricao, preco) ';
         $sql .= ' VALUES(?,?,? ) ' ;
 
         $stm = $this->con->prepare($sql);
 
-       // die(var_dump($entity->getPreco()));
+       //die(var_dump($entity));
         
         //$stm->bindValue(1, $entity->getId());
         $stm->bindValue(1, $entity->getNome());
@@ -68,6 +69,7 @@
         //     'message' => $inserted ? 'registro salvo com sucesso' : 'não foi possível incluir o registro'
         // ];
 
+        
         return $inserted;
     }
 

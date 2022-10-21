@@ -59,7 +59,6 @@ class ProdutoController extends Controller
    //Incluir um novo registro na base de dados
    public function add(Produto $entity)
    {
-      $this->model = new ProdutoModel();
 
       $success = $this->model->add($entity);
 
@@ -68,15 +67,17 @@ class ProdutoController extends Controller
       //die(var_dump($success));
 
       if ($success) {
-         $this->success = true;
-         $this->data = [];
-         $this->msg = 'Registro incluido com sucesso.';
+         return json_encode([
+            'success' => true,
+            'data' => [],
+            'message' => 'Registro incluido com sucesso'
+         ]);
       }
 
       return json_encode([
-         'success' => $this->success,
-         'data' => $this->data,
-         'message' => $this->msg
+         'success' => false,
+         'data' => [],
+         'message' => 'Registro não foi incluido'
       ]);
    }
 

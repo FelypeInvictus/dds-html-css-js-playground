@@ -6,13 +6,13 @@
         <div class="col-md-2">
 
         </div>
-        <form method="POST" action="" id="form-produto" name="form-produto">
+        <form method="POST" action="" id="form-produto" name="form-produto" onsubmit="return salvarProduto(this);" >
 
             <!-- Criando um groupo label + input   -->
             <!-- este campo não pode ser editado e por isso deve estar desabilitado para alterações com readonly -->
             <!-- e o valor padrão deverá ser zero para que quando o botão reset for pressionado já seja populado com "zero" -->
             <div class="form-group">
-                <label for="id">ID</label>
+                <label for="id">Id</label>
                 <input type="text" id="id" name="id" size="50" maxlength="50" minlength="3" class="form-control"
                     value="0" readonly required>
             </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="preco">Preco</label>
-                <input type="number" id="preco" name="preco" class="form-control" required>
+                <input type="number" id="preco" name="preco" class="form-control">
             </div>
 
             <div class="btn-group gap-2 my-2">
@@ -37,7 +37,7 @@
                 <button type="reset" onclick="" class="btn btn-success">
                     <i class="fa fa-user-plus"></i> Novo</button>
 
-                <button type="button" onclick="obterProdutos();" class="btn btn-info">
+                <button type="button" class="btn btn-info" onclick="obterProdutos();">
                     <i class="fa fa-users"></i> Carregar produtos</button>
             </div>
 

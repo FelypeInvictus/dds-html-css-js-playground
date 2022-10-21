@@ -31,6 +31,7 @@ switch ($method){
     break;
 
     case 'POST':
+
         $body = $_REQUEST;
         //die( var_dump($body) );
 
@@ -45,18 +46,20 @@ switch ($method){
          //echo json_encode( $contatos); //, JSON_PRETTY_PRINT );
         
         //die(var_dump($saved));
-
-        // return [
-        //        'success'=>$saved,
-        //        'data' => [],
-        //        'message' => $saved ? 'registro incluído com sucesso' : 'não foi possível incluir o registro.'
-        // ];
-
+        if($saved){
+            echo json_encode([
+                        'success'=>true,
+                        'data' => [],
+                        'message' => $saved ? 'registro incluído com sucesso' : 'não foi possível incluir o registro.'
+                    ]);
+        } else {
+        
         echo json_encode([
-               'success'=>$saved,
+               'success'=>false,
                'data' => [],
                'message' => $saved ? 'registro incluído com sucesso' : 'não foi possível incluir o registro.'
         ]);
+    }
 
     break;
 
