@@ -8,6 +8,10 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
     `senha` varchar(255) NOT NULL,   
     `ativo` tinyint(1) DEFAULT '1'   
     ) ;
+
+ALTER TABLE usuarios
+ADD COLUMN perfil_id INT NOT NULL AFTER email;
+
 CREATE TABLE IF NOT EXISTS modulos (  
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
     descricao varchar(50) not null
