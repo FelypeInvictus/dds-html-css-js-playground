@@ -12,6 +12,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 ALTER TABLE usuarios
 ADD COLUMN perfil_id INT NOT NULL AFTER email;
 
+ALTER TABLE usuarios
+ADD CONSTRAINT fk_usuario_perfil_id FOREIGN KEY (perfil_id) REFERENCES perfis (id);
+
 CREATE TABLE IF NOT EXISTS modulos (  
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
     descricao varchar(50) not null
