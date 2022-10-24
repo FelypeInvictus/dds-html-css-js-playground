@@ -38,3 +38,17 @@ ADD FOREIGN KEY(modulo_id) REFERENCES modulos(id),
 ADD FOREIGN KEY(tela_id) REFERENCES telas(id);
 
 
+CREATE TABLE IF NOT EXISTS perfis (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(20) not null
+);
+
+CREATE TABLE IF NOT EXISTS perfis_modulos (
+    perfil_id INT NOT NULL,
+    modulo_id INT NOT NULL,
+    PRIMARY KEY (perfil_id, modulo_id)
+);
+
+ALTER TABLE perfis_modulos
+ADD constraint fk_perfis_modulos_perfil_id Foreign Key (perfil_id) REFERENCES perfis (id),
+ADD constraint fk_perfis_modulos_modulo_id Foreign Key (modulo_id) REFERENCES  modulos (id);
