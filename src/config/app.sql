@@ -59,3 +59,7 @@ CREATE TABLE IF NOT EXISTS perfis_modulos (
 ALTER TABLE perfis_modulos
 ADD constraint fk_perfis_modulos_perfil_id Foreign Key (perfil_id) REFERENCES perfis (id),
 ADD constraint fk_perfis_modulos_modulo_id Foreign Key (modulo_id) REFERENCES  modulos (id);
+
+
+
+INSERT INTO perfis (nomes) VALUES ("admin","professor","aluno");
