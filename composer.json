@@ -25,6 +25,7 @@
         }
     ],
     "require": {
-        "amphp/amp": "^2.5"
+        "amphp/amp": "^2.5",
+        "phpmailer/phpmailer": "^6.6"
     }
 }

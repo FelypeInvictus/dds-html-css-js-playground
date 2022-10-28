@@ -12,6 +12,10 @@ class ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0
     );
 
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -20,6 +24,10 @@ class ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0
     );
 
     public static $prefixDirsPsr4 = array (
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -83,6 +91,12 @@ class ComposerStaticInitb77fe26474961f9e0f651cd21b8db5f0
         'App\\Persistence\\CRUD' => __DIR__ . '/../..' . '/src/Persistence/CRUD.php',
         'App\\Persistence\\Conexao' => __DIR__ . '/../..' . '/src/Persistence/Conexao.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
