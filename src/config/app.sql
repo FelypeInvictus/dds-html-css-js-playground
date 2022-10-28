@@ -21,30 +21,35 @@ CREATE TABLE `produtos` (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE IF NOT EXISTS `usuarios` (   
-    `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,    
-    `nome` varchar(50) DEFAULT NULL,   
-    `email` varchar(50) NOT NULL,   
-    `perfil` enum('admin','professor','aluno') 
-    NOT NULL DEFAULT 'aluno',   
-    `senha` varchar(255) NOT NULL,   
-    `ativo` tinyint(1) DEFAULT '1'   
-    );
+create table `usuarios`(
+    id int not null primary key auto_increment,
+    nome varchar(50),
+    email varchar(50) not null,
+    perfil enum('admin','professor','aluno') not null default  'aluno', 
+    senha varchar(255) not null,
+    ativo boolean default TRUE
+);
 
-INSERT INTO usuarios (nome, email, perfil, senha, ativo ) VALUES ("Felype Rangel","felype@gmail.com","admin","33", 1);
+insert into `usuarios` (id, nome, email, perfil, senha)
+values (0, 'Felype Rangel Sales', 'felype@gmail.com', 'admin', 'u32');
+
+
+select id,email,senha from usuarios;
+
 
 ALTER TABLE usuarios
-ADD COLUMN perfil_id INT NOT NULL AFTER email;
--- CONSTRAINT fk_usuario_perfil_id
-ALTER TABLE usuarios
-ADD CONSTRAINT fk_usuario_perfil_id FOREIGN KEY (perfil_id) REFERENCES perfis (id);
+ADD COLUMN perfil_id int not null after email;
 
-CREATE TABLE IF NOT EXISTS modulos (  
+ALTER TABLE usuarios 
+ADD CONSTRAINT fk_usuario_perfil_id Foreign Key (perfil_id) REFERENCES perfis(id);
+
+
+CREATE TABLE modulos (  
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
     descricao varchar(50) not null
 ) COMMENT 'módulos';
 
-CREATE TABLE IF NOT EXISTS telas (  
+CREATE TABLE telas (  
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
     descricao varchar(50) not null,
     url varchar(50), 
@@ -57,7 +62,7 @@ ADD CONSTRAINT `fk_tela_modulos`
 FOREIGN KEY(modulo_id) 
 REFERENCES modulos(id);
 
-CREATE TABLE IF NOT EXISTS modulos_telas (  
+CREATE TABLE modulos_telas (  
     modulo_id int not null, 
     tela_id int not null,
     primary key(modulo_id, tela_id)
@@ -69,20 +74,32 @@ ADD FOREIGN KEY(modulo_id) REFERENCES modulos(id),
 ADD FOREIGN KEY(tela_id) REFERENCES telas(id);
 
 
-CREATE TABLE IF NOT EXISTS perfis (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(20) not null
+CREATE TABLE perfis (
+    id int not null primary key auto_increment,
+    nome varchar(20) not null
 );
 
-CREATE TABLE IF NOT EXISTS perfis_modulos (
-    perfil_id INT NOT NULL,
-    modulo_id INT NOT NULL,
-    PRIMARY KEY (perfil_id, modulo_id)
+CREATE TABLE perfis_modulos (
+  perfil_id int not null,
+  modulo_id int not null,
+  primary key (perfil_id, modulo_id)
 );
 
-ALTER TABLE perfis_modulos
-ADD constraint fk_perfis_modulos_perfil_id Foreign Key (perfil_id) REFERENCES perfis (id),
-ADD constraint fk_perfis_modulos_modulo_id Foreign Key (modulo_id) REFERENCES  modulos (id);
+ALTER TABLE perfis_modulos 
+ADD constraint fk_perfis_modulos_perfil_idForeign Key (perfil_id) REFERENCES perfis (id),
+ADD constraint fk_perfis_modulos_modulo_id Foreign Key (modulo_id) REFERENCES modulos(id);
+
+
+INSERT INTO perfis (nome) values ('admin'), ('professor'), ('aluno');
+
+SELECT * FROM perfis;
+
+SELECT * FROM usuarios;
+UPDATE usuarios SET perfil_id = 1 WHERE id = 1;
+
+SELECT u.id, u.nome, p.nome FROM usuarios u
+INNER JOIN perfis p
+ON u.perfil_id = p.id; 
 
 -- ALTER TABLE `perfis`
 -- 	DROP FOREIGN KEY `sql-2e98_c_ibfk_1`;
